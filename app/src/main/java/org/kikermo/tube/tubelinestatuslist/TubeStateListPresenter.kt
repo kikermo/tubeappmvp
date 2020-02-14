@@ -6,10 +6,13 @@ import io.reactivex.disposables.Disposable
 import org.kikermo.tube.base.BasePresenter
 import org.kikermo.tube.domain.TubeApi
 import org.kikermo.tube.domain.usecase.gettubestatus.GetTubeStatusRequest
+import org.kikermo.tube.domain.usecase.gettubestatus.GetTubeStatusResponse
+import org.kikermo.tube.rx.RxSchedulers
 import javax.inject.Inject
 
 class TubeStateListPresenter @Inject constructor(
-    private val tubeApi: TubeApi
+    private val tubeApi: TubeApi,
+    private val rxSchedulers: RxSchedulers
 ) : BasePresenter<TubeStateListView> {
 
     private var view: TubeStateListView? = null
@@ -19,7 +22,8 @@ class TubeStateListPresenter @Inject constructor(
     override fun subscribe() {
         Observable.just(GetTubeStatusRequest)
             .compose(tubeApi.getTubeStatus())
-            .subscribe()
+            .observeOn(rxSchedulers.main())
+            .subscribe(this::handleResponse)
             .registerDisposable()
     }
 
@@ -37,5 +41,24 @@ class TubeStateListPresenter @Inject constructor(
 
     private fun Disposable.registerDisposable() {
         compositeDisposable.add(this)
+    }
+
+    private fun handleResponse(getTubeStatusResponse: GetTubeStatusResponse) {
+        when (getTubeStatusResponse) {
+            is GetTubeStatusResponse.LinesFetchedSuccess -> {
+                view?.showLoading(false)
+                view?.showError(false)
+                view?.showData(getTubeStatusResponse.lines)
+            }
+            is GetTubeStatusResponse.Loading -> {
+                view?.showLoading(true)
+                view?.showError(false)
+                getTubeStatusResponse.lines?.let { lines -> view?.showData(lines) }
+            }
+            is GetTubeStatusResponse.Error -> {
+                view?.showLoading(false)
+                view?.showError(true)
+            }
+        }
     }
 }
