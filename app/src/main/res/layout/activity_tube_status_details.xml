@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tube_status_details_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_medium"
+    tools:context=".tubelinestatusdetails.TubeStatusDetailsActivity">
+
+    <TextView
+        android:id="@+id/tube_status_details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Bakerloo line" />
+
+    <TextView
+        android:id="@+id/tube_status_detauils_status_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tubse_status_details_status"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tube_status_details_title" />
+
+    <TextView
+        android:id="@+id/tube_status_details_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintBottom_toBottomOf="@+id/tube_status_detauils_status_label"
+        app:layout_constraintStart_toEndOf="@+id/tube_status_detauils_status_label"
+        app:layout_constraintTop_toTopOf="@+id/tube_status_detauils_status_label"
+        tools:text="Good service" />
+
+    <TextView
+        android:id="@+id/tube_status_detauils_severity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tubse_status_details_severity"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tube_status_detauils_status_label" />
+
+    <TextView
+        android:id="@+id/tube_status_details_severity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintBottom_toBottomOf="@+id/tube_status_detauils_severity_label"
+        app:layout_constraintStart_toEndOf="@+id/tube_status_detauils_severity_label"
+        app:layout_constraintTop_toTopOf="@+id/tube_status_detauils_severity_label"
+        tools:text="5" />
+
+    <TextView
+        android:id="@+id/tube_status_details_reason"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textStyle="italic"
+        tools:text="@tools:sample/lorem[200]"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tube_status_detauils_severity_label" />
+
+    <include
+        android:id="@+id/tube_status_details_loading_view"
+        layout="@layout/view_loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tube App</string>
+    <string name="general_error">Error fetching latest data</string>
+    <string name="general_refresh">Refresh</string>
+    <string name="tubse_status_details_status">Status: </string>
+    <string name="tubse_status_details_severity">Severity</string>
+</resources>

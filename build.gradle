@@ -1,0 +1,35 @@
+buildscript {
+    apply from: 'config/versions.gradle'
+    apply from: 'config/dependencies.gradle'
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+
+
+    }
+    dependencies {
+        classpath projectDependencies.androidPlugin
+        classpath projectDependencies.kotlinPlugin
+        classpath projectDependencies.detekt
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+task detektSuite() {
+    dependsOn(':gateway:detekt')
+    dependsOn(':app:detekt')
+}

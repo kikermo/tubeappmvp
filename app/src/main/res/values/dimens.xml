@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Margings dimens-->
+
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_big">16dp</dimen>
+    <dimen name="margin_xl">20dp</dimen>
+    <dimen name="margin_xxl">40dp</dimen>
+
+
+</resources>

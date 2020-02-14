@@ -1,0 +1,48 @@
+ext.projectDependencies = [
+
+        androidPlugin           : "com.android.tools.build:gradle:$versions.gradleAndroidPlugin",
+
+        core                    : project(":core"),
+
+        androidxConstraintLayout: "androidx.constraintlayout:constraintlayout:$versions.androidxConstraintLayout",
+        androidxKtx             : "androidx.core:core-ktx:$versions.androidxktx",
+        androidxAppCompat       : "androidx.appcompat:appcompat:$versions.androidxAppCompat",
+        androidxRecyclerView    : "androidx.recyclerview:recyclerview:$versions.androidxRecyclerView",
+
+        room                    : "androidx.room:room-runtime:$versions.room",
+        roomAnnotation          : "androidx.room:room-compiler:$versions.room",
+        roomRxJava2             : "androidx.room:room-rxjava2:$versions.room",
+
+        kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+        kotlinPlugin            : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        rxjava                  : "io.reactivex.rxjava2:rxjava:$versions.rxjava",
+
+        rxandroid               : "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
+        rxrelay                 : "com.jakewharton.rxrelay2:rxrelay:$versions.rxrelay",
+        rxBinding               : "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:$versions.rxBinding",
+
+        retrofit                : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitGson            : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        retrofitRxJava2         : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        gson                    : "com.google.code.gson:gson:$versions.gson",
+        okhttp                  : "com.squareup.okhttp3:okhttp:$versions.okHttp",
+        okhttpLogginInterceptor : "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
+
+        timber                  : "com.jakewharton.timber:timber:$versions.timber",
+
+        detekt                  : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt",
+
+        dagger                  : "com.google.dagger:dagger:$versions.dagger",
+        daggerAnnotation        : "com.google.dagger:dagger-compiler:$versions.dagger",
+        daggerAndroid           : "com.google.dagger:dagger-android:$versions.dagger",
+        daggerAndroidSupport    : "com.google.dagger:dagger-android-support:$versions.dagger",
+
+        mockitoKotlin           : "com.nhaarman:mockito-kotlin:$versions.mockitoKotlin",
+        spek                    : "org.jetbrains.spek:spek-api:$versions.spek",
+        spekJunit               : "org.jetbrains.spek:spek-junit-platform-engine:$versions.spek",
+        junitRunner             : "org.junit.platform:junit-platform-runner:$versions.junitRunner",
+        junit                   : "junit:junit:$versions.junit",
+        junitPlatformGradle     : "org.junit.platform:junit-platform-gradle-plugin:$versions.junitPlatformGradle",
+        kotlinTest              : "io.kotlintest:kotlintest:$versions.kotlinTest",
+        mockito                 : "org.mockito:mockito-core:$versions.mockito"
+]

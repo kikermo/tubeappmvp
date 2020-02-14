@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply from: '../config/detekt.gradle'
+apply from: '../config/versions.gradle'
+apply from: '../config/dependencies.gradle'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "org.kikermo.tubeapp"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation projectDependencies.core
+
+    implementation projectDependencies.kotlin
+
+    implementation projectDependencies.rxjava
+    implementation projectDependencies.rxandroid
+
+    implementation projectDependencies.androidxKtx
+    implementation projectDependencies.androidxAppCompat
+    implementation projectDependencies.androidxConstraintLayout
+    implementation projectDependencies.androidxRecyclerView
+
+    implementation projectDependencies.timber
+    implementation projectDependencies.okhttp
+
+    implementation projectDependencies.rxrelay
+    implementation projectDependencies.rxBinding
+
+    implementation projectDependencies.gson
+    implementation projectDependencies.retrofit
+
+    kapt projectDependencies.daggerAnnotation
+    implementation projectDependencies.dagger
+    implementation projectDependencies.daggerAndroid
+    implementation projectDependencies.daggerAndroidSupport
+
+    testImplementation projectDependencies.mockitoKotlin
+    testImplementation projectDependencies.mockito
+    testImplementation projectDependencies.junit
+    testImplementation projectDependencies.junitRunner
+    testImplementation projectDependencies.spek
+    testImplementation projectDependencies.spekJunit
+    testImplementation projectDependencies.kotlinTest
+}
